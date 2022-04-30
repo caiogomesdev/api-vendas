@@ -2,7 +2,7 @@ import express, { Request, Response } from 'express';
 import cors from 'cors';
 import route from '@shared/routes';
 import AppError from '@shared/errors/AppError';
-import { AppDataSource } from '@shared/typeorm';
+import { AppDataSource } from '@config/typeorm.config';
 
 const app = express();
 

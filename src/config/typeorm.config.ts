@@ -1,6 +1,5 @@
 import 'reflect-metadata';
 import { DataSource } from 'typeorm';
-import { User } from '@shared/entity/User'; //criar entidade
 
 export const AppDataSource = new DataSource({
   type: 'mysql',
@@ -9,9 +8,9 @@ export const AppDataSource = new DataSource({
   username: process.env.DB_USER || 'root',
   password: process.env.DB_PASS || 'root',
   database: process.env.DB_DATABASE || 'api_vendas',
-  synchronize: true,
+  synchronize: false,
   logging: false,
-  entities: [User],
-  migrations: [],
+  entities: [__dirname, '../shared/entity/**/*.{ts,js}'],
+  migrations: [__dirname + '../../../migrations/*.{ts,js}'],
   subscribers: [],
 });
