@@ -9,22 +9,22 @@ import {
 @Entity('products')
 class Product {
   @PrimaryGeneratedColumn()
-  id!: number;
+  id: number;
 
   @Column()
-  name!: string;
+  name: string;
 
   @Column('decimal')
-  price!: number;
+  price: number;
 
   @Column('int')
-  quantity!: number;
+  quantity: number;
 
   @CreateDateColumn()
-  created_at!: Date;
+  created_at: Date;
 
   @UpdateDateColumn()
-  updated_at!: Date;
+  updated_at: Date;
 }
 
 export default Product;
