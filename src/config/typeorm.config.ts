@@ -10,7 +10,6 @@ export const AppDataSource = new DataSource({
   database: process.env.DB_DATABASE || 'api_vendas',
   synchronize: false,
   logging: false,
-  entities: [__dirname, '../shared/entity/**/*.{ts,js}'],
   migrations: [__dirname + '../../../migrations/*.{ts,js}'],
   subscribers: [],
 });
