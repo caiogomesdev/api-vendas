@@ -1,5 +1,6 @@
 import 'reflect-metadata';
 import { DataSource } from 'typeorm';
+import product from '../modules/products/entities/Product';
 
 export const AppDataSource = new DataSource({
   type: 'mysql',
@@ -10,6 +11,7 @@ export const AppDataSource = new DataSource({
   database: process.env.DB_DATABASE || 'api_vendas',
   synchronize: false,
   logging: false,
+  entities: [product],
   migrations: [__dirname + '../../../migrations/*.{ts,js}'],
   subscribers: [],
 });
