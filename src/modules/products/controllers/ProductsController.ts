@@ -25,7 +25,7 @@ export default class ProductsController {
     const createProduct = new CreateProductService();
     const product = await createProduct.execute({ name, price, quantity });
 
-    return res.json(201).json(product);
+    return res.status(201).json(product);
   }
 
   async update(req: Request, res: Response) {
@@ -38,13 +38,13 @@ export default class ProductsController {
       quantity,
     });
 
-    return res.json(201).json(product);
+    return res.status(200).json(product);
   }
 
   async destroy(req: Request, res: Response) {
     const { id } = req.params;
     const deletedProduct = new DeleteProductService();
-    await deletedProduct.execute(Number(id));
-    return res.status(200).json(deletedProduct);
+    const message = await deletedProduct.execute(Number(id));
+    return res.status(200).json(message);
   }
 }
